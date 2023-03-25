@@ -1,0 +1,114 @@
+;input coefficients of the square equation
+main:
+    print_phrase 0
+    in
+    in
+    in
+pop rcx
+pop rbx
+pop rax
+
+    push 0
+    push rax
+jne a_not_null
+    call solve_linear
+    jmp end
+    
+a_not_null:
+
+    ;calculate the discriminant
+    push rbx
+    push rbx
+    mul
+    push 4
+    push rax
+    mul
+    push rcx
+    mul
+    sub
+    pop rdx
+    
+    ;case when D < 0
+    push rdx
+    push 0
+    jae not_neg_discr
+    print_phrase 4
+    jmp end
+
+not_neg_discr:
+
+    ;first root (+)
+    push -1
+    push rbx
+    mul
+    push rdx
+    add
+    push 2
+    push rax
+    mul
+    div
+
+    ;second root (-)
+    push -1
+    push rbx
+    mul
+    push rdx
+    sub
+    push 2
+    push rax
+    mul
+    div
+
+    ;output
+    pop rax
+    pop rbx
+    push rax
+    push rbx
+    je one_root
+    
+    print_phrase 2
+    push rax
+    out
+    push rbx
+    out
+    jmp end
+    
+one_root:
+
+    print_phrase 1
+    push rax
+    out
+
+end:
+    hlt
+
+
+solve_linear:
+;--------------------------------------
+    push 0
+    push rbx
+    jne split_vars
+    
+    push 0
+    push rcx
+    
+    je infinite_roots
+    print_phrase 5 ; no roots
+    ret
+
+infinite_roots:
+    print_phrase 3 ; infinite roots
+    ret
+    
+split_vars:
+    push -1
+    push rcx
+    mul
+    
+    push rbx
+    div
+    
+    print_phrase 1
+    out
+    ret
+;--------------------------------------

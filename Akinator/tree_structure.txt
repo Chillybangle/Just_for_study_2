@@ -1,0 +1,16 @@
+{ "animal" 
+{ "Hodit na dvuh nogah" 
+{ "Mentorit code Kirilla" 
+{ "Matmuh" }
+{ "Chelovek" }
+} 
+{ "Poltorashka" }
+} 
+{ "Let you progat this shit" 
+{ "computer" }
+{ "Make you smarter" 
+{ "book" }
+{ "Неизвестно кто" }
+} 
+} 
+} 

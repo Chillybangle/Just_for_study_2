@@ -1,0 +1,34 @@
+digraph G
+{
+	graph [dpi = 100];
+	ranksep = 1.5;
+	splines = ortho
+
+	edge[minlen = 3, penwidth = 3];
+	node[shape = record, style = rounded,
+		fixedsize = true, height = 1, width = 5,
+		fontsize = 30];
+
+	node0 [label = "animal"];
+	node1 [label = "Hodit na dvuh nogah"];
+	node2 [label = "Mentorit code Kirilla"];
+	node3 [label = "Matmuh"];
+	node6 [label = "Chelovek"];
+	node9 [label = "Poltorashka"];
+	node12 [label = "Let you progat this shit"];
+	node13 [label = "computer"];
+	node16 [label = "Make you smarter"];
+	node17 [label = "book"];
+	node20 [label = "Неизвестно кто"];
+
+	node0 -> node1;
+	node1 -> node2;
+	node2 -> node3;
+	node2 -> node6;
+	node1 -> node9;
+	node0 -> node12;
+	node12 -> node13;
+	node12 -> node16;
+	node16 -> node17;
+	node16 -> node20;
+}

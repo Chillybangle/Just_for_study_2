@@ -1,0 +1,52 @@
+;Factorial
+main:
+    print_phrase 6
+    in
+    pop rax
+    
+    ; number < 0
+    push 0
+    push rax
+    jbe non-negative
+    print_phrase 8
+    jmp end
+
+non-negative:
+    
+    ; number == 0
+    push 0
+    push rax
+    jne next
+    push 1
+    pop rax
+    
+next:
+    push rax
+    call Factorial
+    
+    out
+end:
+    hlt
+    
+; the number must be in the rax and in the stack
+Factorial:
+;-----------------------------------------------
+    ;exit recursion when rax = 1
+    push 1
+    push rax
+    je ret_label
+    
+    ;decrease rax by 1
+    push rax
+    push 1
+    sub
+    pop rax
+    
+    push rax
+    mul
+    
+    call Factorial
+    
+ret_label:
+    ret
+;-----------------------------------------------
